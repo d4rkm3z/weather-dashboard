@@ -4,7 +4,7 @@ import styles from './ReportBox.module.scss';
 
 interface IProps {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export default React.memo<IProps>(function ReportBox({ children, className }) {

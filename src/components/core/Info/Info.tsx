@@ -1,5 +1,9 @@
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
+import ReportBox from '../ReportBox';
+import styles from './Info.module.scss';
 
 const messages = defineMessages({
   title: {
@@ -24,14 +28,28 @@ interface IProps {
 export default React.memo<IProps>(function Info() {
   const intl = useIntl();
 
+  let temperature = 24;
+
   return (
-    <div>
-      <div>{intl.formatMessage(messages.title, { name: 'West Virginia' })}</div>
-      <div>{intl.formatMessage(messages.message)}</div>
-      <div>
-        %temperature%
-        <button>{intl.formatMessage(messages.link)}</button>
+    <ReportBox className={styles.root}>
+      <div className={styles.text}>
+        <span className={styles.title}>
+          {intl.formatMessage(messages.title, { name: 'West Virginia' })}
+        </span>
+        <article className={styles.article}>{intl.formatMessage(messages.message)}</article>
       </div>
-    </div>
+
+      <div className={styles.block}>
+        <span className={styles.temperature}>
+          <FontAwesomeIcon icon={faCloudSun} size={'1x'} />
+          <span>{temperature}&#x2103;</span>
+        </span>
+        <a href="#"
+           className={styles.button}
+        >
+          {intl.formatMessage(messages.link)}
+        </a>
+      </div>
+    </ReportBox>
   );
 });
