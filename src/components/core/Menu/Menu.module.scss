@@ -1,0 +1,21 @@
+.root {
+  color: var(--gray);
+  padding: 32px 24px 16px 24px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  padding-bottom: 24px;
+}
+
+.case {
+  padding: 8px 0;
+
+  & .text {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 16px;
+  }
+}
