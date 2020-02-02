@@ -1,10 +1,12 @@
 import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 
+import styles from './Breadcrumbs.module.scss';
+
 const messages = defineMessages({
   title: {
     id: 'core.breadcrumbs.title',
-    defaultMessage: 'WeatherReport'
+    defaultMessage: 'Weather Report'
   }
 });
 
@@ -15,7 +17,7 @@ export default React.memo<IProps>(function Breadcrumbs() {
   const intl = useIntl();
 
   return (
-    <div>
+    <div className={styles.root}>
       <span>{intl.formatMessage(messages.title)}</span>
     </div>
   );
